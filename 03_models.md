@@ -112,7 +112,7 @@ question.id
 
 Question.first
 Question.count
-Question.each { |q| puts q.title} 
+Question.all.each { |q| puts q.title} 
 
 question = Question.find(3)
 question.title = "Worried about Milk"
