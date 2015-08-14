@@ -82,7 +82,11 @@ By default rails uses sqlite3
 This is a no mess not fuss, file based database. It is the quickest to get started with.
 
 
-To see the configuration go into: ```app/config/database.yml
+To see the configuration go into: 
+
+```
+app/config/database.yml
+
 ```
 
 ## Put the model to work
