@@ -140,7 +140,7 @@ Hints:
 * Rails has a way of displaying a number as a currency
   * use the method: number_to_currency(hotel.price)
 
-About the number_to_currency method
+#### About the number_to_currency method
 * Docs: http://api.rubyonrails.org/classes/ActionView/Helpers/NumberHelper.html
 * As described in the docs
   * number_to_currency(number, options = {})
@@ -150,33 +150,36 @@ About the number_to_currency method
 * Another option is precision
   * :precision - Sets the level of precision (defaults to 2).
 
+You can experiment with this method in the rails console:
+```
+rails console
+include ActionView::Helpers::NumberHelper
+number_to_currency(10)
+```
+
 To use this method with defaults use:
 ```ruby
 number_to_currency(10)
 ```
-To use this method specifying some options you can use
 
-To use this method with defaults use:
+To use this method with some options use:
 ```ruby
 opt = { :unit => '£', :precision => 3 }
 number_to_currency(10, opt)
 ```
-Using the new hash syntax for symbols
-```ruby
-opt = { unit: '£', precision: 3 }
-number_to_currency(10, opt)
-```
 Next we can in-line the hash
-Using the new hash syntax for symbols
 ```ruby
-number_to_currency(10, { unit: '£', precision: 3 })
+number_to_currency(10, { :unit => '£', :precision => 3 })
 ```
-In Ruby, if the last parameter is a hash, then the parentheses are not required
+In Ruby if the last parameter is a hash, then the parentheses are not required
 
+```ruby
+number_to_currency(10, :unit => '£', :precision => 3)
+```
+Using the new hash syntax for symbols
 ```ruby
 number_to_currency(10, unit: '£', precision: 3 )
 ```
-This last example is the most common way of calling methods which take a hash as the last parameter.
 
 
 
