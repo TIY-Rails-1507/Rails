@@ -1,0 +1,17 @@
+ If you are a Mac, you can open folders\files in Sublime from the terminal. 
+
+Use:
+subl dir_name
+subl file_name
+
+If that does not work try:
+
+sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/bin/subl
+
+
+
+If you are using gemsets, this page is useful: https://rvm.io/gemsets
+
+
+
+
