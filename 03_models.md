@@ -131,7 +131,7 @@ quest.update(title: "Green socks?", body: "I now want green socks!")
 
 Hints: 
 * Use 'decimal' for a price field
-* If you can't see the value of a price in the console, use the "to_s" function e.g. hotel.prince.to_s
+* If you can't see the value of a price in the console, use the "to_s" function e.g. hotel.price.to_s
 
 
 
