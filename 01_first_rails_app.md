@@ -1,47 +1,8 @@
 
-# Week 04
+# First Rails App - almost...
 
 
-
-## Installing Rails
-
-Install Ruby (we have already done this)
-
-Check your version number:
-
-```
-mac:dev daryn$ ruby -v
-ruby 2.2.2p95 (2015-04-13 revision 50295) [x86_64-darwin14]
-mac:dev daryn$ 
-
-```
-If you are using RVM, you may choose to create a gemset - this is optional...
-
-To install rails use: 
-
-```
-gem install rails --no-ri --no-rdoc
-```
-Verify that it has worked using:
-```
-rails -v
-```
-
-## What are we building?
-
-Instructor
-* Questionable
-  * A Questions and answers website
-  * Similar to stack overflow or quora
-
-Class
-*  Explore
-  * a site for traveling 
-  * reviews and general advice
-
-
-## Creating a Skeleton App
-
+## 1.1 Generate the skeleton template 
 
 In your ```dev``` directory type the following:
 
@@ -72,7 +33,7 @@ We will come back to this later, however if you wish to know more see here: http
 After saving ```aplication.rb``` we can run the application.
 
 
-## Launch Explore
+## 1.1 Launch Explore
 
 Within the projects rails root directory (explore) type:
 
@@ -96,9 +57,9 @@ Try to find the currently configured database adapter.
 
 Leave the server running and open a new console\terminal window to continue working...
 
-## What just happened?
+## 1.1 What just happened?
 
-We installed rails and created our first app. Rails generated a load of files for us. The main folders we need note are:
+We installed rails and created our first app. Rails generated a load of files for us. The main folders we should note are:
 * app
   * where the main application code is written 
 * app/view
@@ -113,7 +74,7 @@ We installed rails and created our first app. Rails generated a load of files fo
 * config
   * the main configuration is done here e.g. choosing a database
 
-That is more than enough information for now, if you are still keen on more detail see: http://www.tutorialspoint.com/ruby-on-rails/rails-directory-structure.htm 
+If you are still keen on more detail see: http://www.tutorialspoint.com/ruby-on-rails/rails-directory-structure.htm 
 
 
 
