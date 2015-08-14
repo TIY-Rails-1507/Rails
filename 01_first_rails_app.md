@@ -2,7 +2,7 @@
 # First Rails App - almost...
 
 
-## 1.1 Generate the skeleton template 
+## Generate the skeleton template 
 
 In your ```dev``` directory type the following:
 
@@ -33,7 +33,7 @@ We will come back to this later, however if you wish to know more see here: http
 After saving ```aplication.rb``` we can run the application.
 
 
-## 1.1 Launch Explore
+## Launch Explore
 
 Within the projects rails root directory (explore) type:
 
@@ -57,7 +57,7 @@ Try to find the currently configured database adapter.
 
 Leave the server running and open a new console\terminal window to continue working...
 
-## 1.1 What just happened?
+## What just happened?
 
 We installed rails and created our first app. Rails generated a load of files for us. The main folders we should note are:
 * app
