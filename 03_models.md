@@ -125,7 +125,7 @@ quest.update(title: "Green socks?", body: "I now want green socks!")
 
 ## Exercise
 
-* Add an 'hotel' model to Explore. 
+* Add an 'hotel' model to the Explore application. 
 * Run the migration file to create the table
 * Use the Rails console to create hotels
 
