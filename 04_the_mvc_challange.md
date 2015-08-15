@@ -1,4 +1,4 @@
-#### The MVC challenge
+# The MVC challenge
 * Use the the hotel model in the hotels controller to fetch all the hotels in the database
 * Check that the view is displaying this correctly
 

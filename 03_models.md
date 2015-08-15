@@ -50,21 +50,8 @@ This file can create a new table with the supplied fields.
 Every row in a table should have a unique ID, and Rails will add one for us by default.
 
 ```t.timestamps null: false```
-This gets added by default. When the table is created it will add entries for 'created_at' and 'updated_at'. Rails takes care of these fields.
+This gets added by default. When the table is created it will add entries for 'created_at' and 'updated_at'. Rails takes care of creating and updating the data in these fields.
 
-We have decided to add a 'body' field to the question model and migration. To do this, simply add another entry:
-
-```ruby
-class CreateQuestions < ActiveRecord::Migration
-  def change
-    create_table :questions do |t|
-      t.string :title
-	  t.string :body
-      t.timestamps null: false
-    end
-  end
-end
-```
 
 This file can now be run against most relational database management systems to create a table.
 
@@ -76,11 +63,9 @@ rake db:migrate
 rake db:migrate:status
 
 ```
+Rails keeps track of the applied migrations in a schema migrations table.
 
-By default rails uses sqlite3
-
-This is a no mess not fuss, file based database. It is the quickest to get started with.
-
+By default rails uses sqlite3. This is a no mess not fuss, file based database. It is the quickest to get started with.
 
 To see the configuration go into: 
 
@@ -88,6 +73,8 @@ To see the configuration go into:
 app/config/database.yml
 
 ```
+In this file we can see how to use different databases in different environments e.g. development, test and production. We will make these changes at a later stage.
+
 
 ## Put the model to work
 Using the rails console:
@@ -96,17 +83,17 @@ Using the rails console:
 rails console
 q = Question.new
 q.title = "Fresh Bread?"
-q.body = "Where can I get fresh bread in London?"
 q.save
 q.title
 q.id
 
 
-quest = Question.new(title: "Eggs?", body: "Where can I get eggs from a farm?")
+
+quest = Question.new(title: "Eggs?")
 quest.save
 
 
-question = Question.create(title: "Milk?", body: "Is milk good for me?")
+question = Question.create(title: "Milk?")
 
 question.id
 
@@ -117,9 +104,10 @@ Question.all.each { |q| puts q.title }
 question = Question.find(3)
 question.title = "Worried about Milk"
 
-quest = Question.find_by(title: "Red socks?")
 
-quest.update(title: "Green socks?", body: "I now want green socks!")
+Question.create(title: "Red socks?")
+quest = Question.find_by(title: "Red socks?")
+quest.update(title: "Green socks?")
 ```
 
 
