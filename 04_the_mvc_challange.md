@@ -18,23 +18,23 @@ Rails has a way of displaying a number as a currency
 You can experiment with this method in the rails console:
 ```
 rails console
-include ActionView::Helpers::NumberHelper
-number_to_currency(10)
+helper.number_to_currency(10)
 ```
+Only use 'helper' when in the console. Within the View we don't need to specify 'helper'.
 
 To use this method with defaults use:
 ```ruby
-number_to_currency(10)
+helper.number_to_currency(10)
 ```
 
 To use this method with some options use:
 ```ruby
 opt = { :unit => '£', :precision => 3 }
-number_to_currency(10, opt)
+helper.number_to_currency(10, opt)
 ```
 Next we can in-line the hash
 ```ruby
-number_to_currency(10, { :unit => '£', :precision => 3 })
+helper.number_to_currency(10, { :unit => '£', :precision => 3 })
 ```
 In Ruby if the last parameter is a hash, then the parentheses are not required
 
@@ -43,5 +43,5 @@ number_to_currency(10, :unit => '£', :precision => 3)
 ```
 Using the new hash syntax for symbols
 ```ruby
-number_to_currency(10, unit: '£', precision: 3 )
+helper.number_to_currency(10, unit: '£', precision: 3 )
 ```
