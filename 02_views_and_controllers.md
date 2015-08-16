@@ -118,6 +118,7 @@ class QuestionsController < ApplicationController
       @questions = ['Is Pluto a planet?', 'Why am I here?', 'Who am I?']
   end
 end
+``` 
 
 Then in the view we use embedded Ruby:
 
