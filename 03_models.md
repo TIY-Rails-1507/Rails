@@ -20,7 +20,7 @@ Note: This name is singular
 This generated a number of files, notably
 * app/models/question.rb
   * This is the actual model
-* db/migrate/<time stamp>_create_questions.rb
+* db/migrate/'time stamp'_create_questions.rb
   * This file is used to create the table in the database
 
 The model file is empty:
@@ -34,7 +34,7 @@ Rails 'adds' methods to this class at run time.
 Looking at the migration file we have:
 
 ```ruby
-# db/migrate/<time stamp>_create_questions.rb
+# db/migrate/'time stamp'_create_questions.rb
 class CreateQuestions < ActiveRecord::Migration
   def change
     create_table :questions do |t|
