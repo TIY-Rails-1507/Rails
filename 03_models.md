@@ -17,7 +17,7 @@ rails generate model question title:string
 ```
 Note: This name is singular 
 
-This generated a number of file, notably
+This generated a number of files, notably
 * app/models/question.rb
   * This is the actual model
 * db/migrate/<time stamp>_create_questions.rb
