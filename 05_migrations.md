@@ -9,7 +9,7 @@ Obviously we want to do this without deleting the data.
 To get built in help, use:
 
 ```
-rake generate migration
+rails generate migration
 ```
 This shows:
 ```
