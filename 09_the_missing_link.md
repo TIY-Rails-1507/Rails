@@ -51,7 +51,7 @@ We can see that there is no helper method for 'questions/:id'. That is because r
 ```ruby
 # app/config/routes.rb
 get 'questions' => 'questions#index'
-get 'questions/:id' => 'questions#show', as: question
+get 'questions/:id' => 'questions#show', as: :question
 ``` 
 
 To confirm that the new helper method is available, go back to: http://localhost:3000/rails/info/routes
