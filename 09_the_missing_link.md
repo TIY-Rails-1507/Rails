@@ -16,7 +16,7 @@ This is a method that generates an HTML anchor tag - also known as a link.
 <%= link_to "Back to Questions", "/questions" %>
 ```
 
-It is not ideal to had code "/questions". A more maintainable way would be to make better use of the built in routing system. The routing system can generate a URL or Path based on a route name.  
+It is not ideal to hard code "/questions". A more maintainable way would be to make better use of the built in routing system. The routing system can generate a URL or Path based on a route name.  
 
 To see the routes in more detail brows to: http://localhost:3000/rails/info/routes
 
