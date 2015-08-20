@@ -125,7 +125,9 @@ Before we wire up the form, let's have a checkpoint exercise
 
 ### Exercise 
 
-Use `rake routes` to recall the name of the edit route.
+Add an edit page for the hotels.
+
+Use `rake routes` to see the name of the edit route.
 
 Use that route name to add an edit link in the details page of a hotel.
 
