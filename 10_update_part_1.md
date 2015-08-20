@@ -10,14 +10,14 @@ The conventional way to edit in Rails is to take a user to a URL similar to this
 
 ```http://localhost:3000/questions/1/edit```
 
-That should show a form which allows the user to edit question with an ID of 1. At the moment it shows a ```No route matches [GET] "/questions/1/edit"``` error.
+That should show a form which allows the user to edit question with an ID of 1. At the moment it shows a `No route matches [GET] "/questions/1/edit"` error.
 
 We need to add another route to routes.rb:
 ```
 get 'questions/:id/edit' => 'questions#edit', as: :edit_question
 ```
 
-That specifies that a URL matching the pattern on the left, should call the ```edit``` action on the ```QuestionsController```. That route has a name of ```edit_question```. We can use this name in the helper methods.
+That specifies that a URL matching the pattern on the left, should call the `edit` action on the `QuestionsController`. That route has a name of `edit_question`. We can use this name in the helper methods.
 
 
 Refreshing the browser leads to the following error:
@@ -25,7 +25,7 @@ Refreshing the browser leads to the following error:
 The action 'edit' could not be found for QuestionsController
 ```
 
-We can add this action to the ```QuestionsController```.
+We can add this action to the `QuestionsController`.
 
 While we are doing this, we can fetch the question we want to edit.
 
@@ -101,7 +101,7 @@ Before we wire up the form, let's have a checkpoint exercise
 
 ### Exercise 
 
-Use ```rake routes``` to recall the name of the edit route.
+Use `rake routes` to recall the name of the edit route.
 
 Use that route name to add an edit link in the details page of a hotel.
 
