@@ -8,7 +8,9 @@ In this section we will add the functionality to update data.
 
 The conventional way to edit in Rails is to take a user to a URL similar to this: 
 
-```http://localhost:3000/questions/1/edit```
+```
+http://localhost:3000/questions/1/edit
+```
 
 That should show a form which allows the user to edit question with an ID of 1. At the moment it shows a `No route matches [GET] "/questions/1/edit"` error.
 
