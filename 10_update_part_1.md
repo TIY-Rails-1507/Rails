@@ -31,7 +31,7 @@ We can add this action to the `QuestionsController`.
 
 While we are doing this, we can fetch the question we want to edit.
 
-```
+```ruby
 # app/controllers/questions_controller.rb
 class QuestionsController < ApplicationController
 
@@ -61,7 +61,7 @@ Missing template questions/edit
 
 We can create a basic view, to make sure the controller is working as expected:
 
-```
+```html
 <h3><%= @question.title %></h3>
 
 ```
@@ -69,9 +69,31 @@ This can be tested by passing through different IDs in the URL.
 
 Next, we require an HTML form which will allow a user to edit the Question.
 
-To do this in ERB we use the following helper methods:
+The HTML we wish to end up with is displayed next. Note we don't have to type this, as Rails has methods to help generate this HTML:
+
+```html
+<form  method="post">
+	<p>
+		<label for="question_title">Title</label>
+		<input type="text" value="Milk?" name="question[title]" id="question_title" />
+	</p>
+	<p>
+		<label for="question_body">Body</label>
+	</p>
+	<p>	
+		<textarea cols="30" rows="10" name="question[body]" id="question_body"></textarea>
+	</p>
+	<p>
+		<input type="submit" name="commit" value="Update Question" />
+	</p>
+</form>
 
 ```
+
+
+To do this in ERB we use the following helper methods:
+
+```html
 <!-- app/views/questions/edit.html.erb -->
 <h3><%= @question.title %></h3>
 
