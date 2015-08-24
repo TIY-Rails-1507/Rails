@@ -131,7 +131,9 @@ If there was a number or a price, we could have used:
 f.number_field :price
 ```
 
-It is worth looking into the datetime_select method - http://api.rubyonrails.org/classes/ActionView/Helpers/DateHelper.html#method-i-datetime_select
+It is worth looking into the built in date selectors 
+* http://api.rubyonrails.org/classes/ActionView/Helpers/DateHelper.html#method-i-datetime_select
+* http://apidock.com/rails/v4.2.1/ActionView/Helpers/DateHelper/date_select
 
 Before we wire up the form, let's have a checkpoint exercise
 
