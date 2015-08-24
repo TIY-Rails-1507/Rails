@@ -1,17 +1,22 @@
 # Updating data - part 2
 
-Next up we need to submit the form data so that the server can save the update. As Rails encourages a RESTful design.
+Next up we need to submit the form data so that the server can save the update. 
 
-To see more, have a read about REST in the file: A01_Update_REST_Rails.md
+By convention, Rails uses a RESTful design. The more we follow Rails conventions, the less code we need to write.
 
+To learn more about REST read the file: A01_Update_REST_Rails.md
+
+Rails maps HTTP verbs to actions:
+* GET - read
+* POST - create
+* PATCH - update 
+* DELETE - delete \ destroy
+
+As we are doing an update, we need to do a PATCH request.
 
 ## A 'fake' PATCH request
 
-To do an Update in Rails we need to do a PATCH request.
-
-Most browsers support GET and POST however not all support DELETE, PATCH (or PUT).
-
-Rails has a work around for this by using a hidden field. Next we will return to the Questionable app to see the details.
+Most browsers support GET and POST however not all support DELETE, PATCH (or PUT). Rails has a work around for this by using a hidden field. 
 
 The Edit view currently has this code:
 
@@ -36,7 +41,7 @@ The Edit view currently has this code:
 <% end %>
 ```
 
-If we look at the source code within the browser we see the following HTML.
+If we look at the source code within the browser we see the following HTML:
 
 ```html
 <form class="edit_question" id="edit_question_3" action="/questions/3" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="patch" /><input type="hidden" name="authenticity_token" value="cuas2XtDJGJRWTweuWqRJmDEpBdg/Q/jibxeyjc8zwxMbH0aXsn0yXJrXKtBPbNZYiWW6QOe/fSDReaUl0w6tw==" />
@@ -61,7 +66,7 @@ First we can notice the form tag declaration:
 ```html
 <form class="edit_question" id="edit_question_3" action="/questions/3" accept-charset="UTF-8" method="post">
 ```
-At the end of the tag we see `method="post"`. This means that when we hit the submit button this form will do a post to "/questions/3". 
+At the end of the tag we see `method="post"`. This means that when we click the submit button this form will do a post to "/questions/3". 
 
 All of the data in the form will be sent to the server in the body of the request. This is made available in the params array.
 
@@ -72,7 +77,7 @@ In the generated HTML we see this line:
 ```
 This is a hidden field which means that it won't be visible by the user. However the Rails framework can use this and treat this request as if it was a PATCH request.
 
-In summary, even though this request will technically be a POST, Rails will treat it as a PATCH. By convention, a PATCH request means that we are performing an update. 
+In summary, not all browsers support all the HTTP verbs. In order to do a PATCH request Rails uses a hidden field and 'converts' this request to a PATCH. Even though this request will technically be a POST, Rails will treat it as a PATCH. By convention, a PATCH request means that we are performing an update. 
 
 ## Implementing the Update
 
@@ -106,7 +111,7 @@ Trying to submit the form again we get:
 The action 'update' could not be found for QuestionsController
 ```
 
-This means we have route but no action in the controller. This 'update' action needs fetch the form data from the params hash as well as update the Question in the database.
+This means we have a route but no action in the controller. This 'update' action needs to fetch the form data from the params hash as well as update the Question in the database.
 
 All of the question data is stored in the params hash, under the key of 'question'. Rails is able to do this because the HTML has fields such as this:
 
@@ -143,7 +148,7 @@ class QuestionsController < ApplicationController
 end
 ```
 
-This results in this error:
+Trying this out results in a new kind of error:
 
 ```
 ActiveModel::ForbiddenAttributesError in QuestionsController#update
@@ -169,7 +174,7 @@ To white list these editable fields we need to do the following:
 Here is a terse explanation of that code: http://stackoverflow.com/a/18426829/259477  - make sure you read the comment as well.
 
 
-After this change, clicking the update question button will result in another error:
+After this change, clicking the update question button will result in yet another error:
 
 ```
 Missing template questions/update

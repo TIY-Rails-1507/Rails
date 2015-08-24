@@ -13,7 +13,7 @@ ActiveRecord::RecordNotFound in QuestionsController#show
 
 	def show
 		question_id = params[:id]
-		* @question = Question.find(question_id) *
+		@question = Question.find(question_id) # <-- there is an error on this line
 	end
 ```
 
@@ -23,7 +23,7 @@ Unfortunately the routing rule we have for show has captured this URL:
 get 'questions/:id' => 'questions#show', as: :question
 ```
 
-To fix this we need to define a new route for the create and place it above the 'show rule'
+To fix this we need to define a new route and place it above the 'show rule'
 
 ```ruby
 # app/config/routes.rb
@@ -85,7 +85,7 @@ Saving this and reloading the browse results in a missing template error:
 Missing template questions/new
 ```
 
-Next up we create this template. This template is going to be a 'copy & paste' from the edit template:
+Next up we create this template. This template is going to be a 'copy & paste' from the edit template - in other words copy the form from the edit template into here:
 
 ```html
 <h3>New Question</h3>
