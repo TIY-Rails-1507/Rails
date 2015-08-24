@@ -1,4 +1,4 @@
-# Updating data
+# Updating data - part 1
 
 Typically a user can Create, Read, Update and Delete data. These actions are known as CRUD operations. In Questionable the user can already read data.
 
@@ -19,8 +19,11 @@ We need to add another route to routes.rb:
 get 'questions/:id/edit' => 'questions#edit', as: :edit_question
 ```
 
-That specifies that a URL matching the pattern on the left, should call the `edit` action on the `QuestionsController`. That route has a name of `edit_question`. We can use this name in the helper methods.
+That specifies that a URL matching the pattern on the left, should call the `edit` action on the `QuestionsController`. That route has a name of `edit_question`. We can use this name in the helper methods if we wish e.g.
 
+```html
+<%= link_to "Edit", edit_question_path(@question) %>
+```
 
 Refreshing the browser leads to the following error:
 ```
