@@ -1,6 +1,6 @@
 # Flash!
 
-While we are not that concerned about the look of the website at the moment, it would still be nice to give feedback to user when an item has been created or edited. 
+While we are not that concerned about the look of the website at the moment, it would still be nice to give feedback to the user when an item has been created, updated or deleted. 
 
 To do this we use the 'flash' object. This is a hash like object that is available in the controllers and views.
 

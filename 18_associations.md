@@ -1,7 +1,7 @@
 # Associations 
 
 
-It is common to have items which are related to other items. For example a team has players, a question has many answers and a hotel has reviews.
+It is common to have items which are related to other items. For example a team has players, a question has answers and a hotel has reviews.
 
 
 The Questions table looks similar to the following diagram:
@@ -18,11 +18,11 @@ In traditional SQL (database) terms, we would say that this is a one to many rel
 
 To be precise one question can have zero, one or many answers.
 
-The answer table has an 'id' column. This column is called the primary key field.
+The answer table has an 'id' column. This column is called the primary key.
 
-Within the answer table, the 'answer_id' column is known as a foreign key column. It has entries which are considered as foreign keys e.g. primary keys from another tables.   
+Within the answer table, the 'answer_id' column is known as a foreign key column. It has entries which are considered as foreign keys e.g. primary keys from another table.   
 
-To make sure you understand this, try and figure out which Answers belong to which Questions in the previous diagram.
+To make sure you understand this, try and figure out which Answers belong to which Questions in the previous images.
 
 
 ## Generating the model and table

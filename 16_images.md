@@ -6,9 +6,9 @@ In this section we are going to 'jazz-up' the details page of the hotel.
 
 Google for a few hotel images and save them to `app/assets/images/`.
 
-Choose one as a default image.
+Choose one to be used as the default image.
 
-Please don't waste too much time on this...
+Please don't waste too much time on picking the perfect images...
 
 ## Task 2
 
@@ -16,13 +16,13 @@ Add a new migration that will add a new column to the hotels table. This should 
 
 ## Task 3
 
-Update the 'edit' form so that we can set an image path. 
+Update the 'edit' form so that we can set an image name. 
 
 Use the text_field form helper method.
 
-When you enter the file path, simply enter the name of the file.
+When you enter the full file path, simply enter the name of the file.
 
-Hint: don't forget about the controller logic (hotel_params)
+This assumes you have saved the images to `app/assets/images/`.
 
 ## Task 4
 
