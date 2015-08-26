@@ -69,7 +69,7 @@ rake db:migrate
 You may recall that you can see the status of the migrations using:
 ```
 rake db:migrate:status
-``
+```
 
 Next, I will examine the model in the rails console:
 
