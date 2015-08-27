@@ -3,7 +3,8 @@
 Change Explore so that we can see the 3 most recent reviews in the show page of an hotel.
 
 Hints: 
+
 `qestion.answers.order(created_at: :desc)`
 
-
 http://api.rubyonrails.org/classes/ActiveRecord/QueryMethods.html#method-i-limit
+

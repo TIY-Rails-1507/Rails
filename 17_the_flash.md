@@ -62,7 +62,7 @@ Another tactic is to loop through all the keys in the flash so that it will disp
 ```html
 	<body>
 	    <% flash.each do |name, msg| %>
-	      <%= content_tag :div, flash[:notice], class: name %>
+	      <%= content_tag :div, msg, class: name %>
 	    <% end %>
 
 		<%= yield %>
