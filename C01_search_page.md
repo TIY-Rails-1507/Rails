@@ -14,4 +14,8 @@ Good luck!
 
 
 
-Hint: http://stackoverflow.com/a/22596992/259477
+Hints: 
+
+http://stackoverflow.com/a/22596992/259477
+
+Lookup form_tag - http://guides.rubyonrails.org/form_helpers.html
