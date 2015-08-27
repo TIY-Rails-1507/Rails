@@ -85,6 +85,9 @@ Make sure that you fetch the hotel and then find the review from that hotels rev
 
 e.g. @hotel.reviews
 
+
+Add a link to the show page to 'see all reviews'
+
 ## Extra
 
 To limit the routes being generated see here: 
