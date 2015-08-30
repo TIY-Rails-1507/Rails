@@ -1,4 +1,4 @@
-# Partials
+# Partials - part 1
 
 In this session we create a 'partial' which will let us 'share' code in the views. This allows us to reduce code duplication.
 
