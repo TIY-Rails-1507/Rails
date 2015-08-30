@@ -364,7 +364,7 @@ With the view updating to:
 <p><%= link_to "Add Question", new_question_path %> </p>
 
 <%= render partial: "questions", object: @all_questions, locals: { caption: "All Questions" } %>
-<%= render partial: "questions", object: @unanswered_questions, locals: { caption: "Unanswerd Questions" } %>
+<%= render partial: "questions", object: @unanswered_questions, locals: { caption: "Unanswered Questions" } %>
 <%= render partial: "questions", object: @answered_questions, locals: { caption: "Answered Questions" } %>
 
 ```
