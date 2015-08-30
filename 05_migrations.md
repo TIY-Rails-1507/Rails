@@ -28,7 +28,7 @@ Text is used for text fields which require a long length - the database will use
 
 The migration file looks like this:
 ```
-class AddFieldsToQuestion < ActiveRecord::Migration
+class AddBodyToQuestion < ActiveRecord::Migration
   def change
     add_column :questions, :body, :text
   end
