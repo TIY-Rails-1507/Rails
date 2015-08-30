@@ -1,9 +1,6 @@
 # Deployment
 
 
-<!-- As we are deploying to Heroku we need to make a change in `config/environments/production.rb` -->
-
-
 This section covers deploying or releasing an application. We will cover deploying to Heroku. Heroku is a cloud based hosting service.
 
 Heroku has different pricing strategies for different needs:
@@ -15,6 +12,11 @@ We will be using the free package.
 This does mean you need to sign up to Heroku: https://sigAnup.heroku.com/www-home-top
 
 Remember to verify your email.
+
+This section uses bundler. If you want a quick refresher you can read the short descriptions from previous examples:
+* https://github.com/TIY-Rails-1507/week-03#bundler
+* https://github.com/TIY-Rails-1507/fizzbuzz#gemfile--gemfilelock
+* https://github.com/TIY-Rails-1507/rps-tdd#gemfile--gemfilelock
 
 ## Rails environments
 
