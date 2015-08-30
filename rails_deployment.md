@@ -27,9 +27,9 @@ The settings for these can be seen in `config/environments`. The files in that d
 
 There is another file which is related to environments. This is the `config/database.yml`. That file specifies database settings for different environments. If you wanted to use PostgreSQL in development and test, this is where you would make that change. 
 
-<!-- We will make the required changes later on.
- -->
-<!-- We will be using PostgreSQL as a service from Heroku. So we will not need to make changes here. Using PostgreSQL as a service means that we don't need to backup the data or manage database upgrades.  -->
+We will be using PostgreSQL as a service from Heroku. Therefore we will not need to make changes here. Heroku will auto generate a 'database.yml' file with the settings that it needs.
+
+Using PostgreSQL as a service means that we don't need to backup the data or manage database upgrades.
 
 ## Step 1
 
