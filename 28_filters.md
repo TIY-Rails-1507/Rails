@@ -89,7 +89,7 @@ The above was just an example, applying that would cause errors.
 
 ## Warning: don't load data in a filter
 
-Using a `before_action` is a good way to apply access control. You can ensure that a user is logged in before they can 'use' and actions. We will cover this in upcoming weeks.
+Using a `before_action` is a good way to apply access control. You can ensure that a user is logged in before they can 'use' any actions. We will cover this in upcoming weeks.
 
 In the example above we used a `before_action` to load data. Not everyone agrees with this. It does remove duplication, however it adds complexity. This is a post from 'crafting ruby' which argues this case - http://craftingruby.com/posts/2015/05/31/dont-use-before-action-to-load-data.html
 
