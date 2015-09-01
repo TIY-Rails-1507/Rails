@@ -33,6 +33,8 @@ We will be using PostgreSQL as a service from Heroku. Therefore we will not need
 
 Using PostgreSQL as a service means that we don't need to backup the data or manage database upgrades.
 
+Next are the 10 steps to deploy your web application...
+
 ## Step 1
 
 There is some gem management which we do need to do. The `Gemfilefile` is located in the root directory, open that for editing. Under source we are going to add the version of Ruby that we have been using. 
@@ -122,7 +124,7 @@ bundle install --without production
 ```
 <!-- As we have recently run this command, and we have only changed the production group, this should be quick and nothing should be downloaded. -->
 
-## Step 5
+## Step 3
 
 Read all of this step before following the instructions.
 
@@ -154,15 +156,13 @@ http://sourabhbajaj.com/mac-setup/Heroku/README.html
 
 #### Troubleshooting on Windows
 
-Help:
-
 http://romikoderbynew.com/2012/01/25/getting-started-with-heroku-toolbelt-on-windows/
 
 #### Troubleshooting on Ubuntu
 
 http://askubuntu.com/questions/556685/how-to-download-and-install-heroku
 
-## Step 6
+## Step 4
 
 Heroku uses Git for deploying. Make sure that all your changes are committed locally - you don't need to push to GetHub.
 
@@ -174,9 +174,7 @@ On branch master
 nothing to commit, working directory clean
 ```
 
-## Step 7
-
-At last, we will deploy!
+## Step 5
 
 ### Create the app on Heroku
 
@@ -206,6 +204,8 @@ origin	https://github.com/TIY-Rails-1507/questionable2.git (push)
 ```
 
 Notice a new remote has been added that points to `git.heroku.com`.
+
+## Step 6
 
 ### Push the code to Heroku
 
@@ -250,6 +250,8 @@ $
 
 There may be a warning about no Procfile, we can ignore this. Verify that no other errors occurred. 
 
+## Step 7
+
 ### Run the migrations
 
 Next we need to run the migrations so that the PostgreSQL database is created and updated.
@@ -286,6 +288,8 @@ $ heroku ps
 web.1: up 2015/08/30 18:11:01 (~ 10m ago)
 ```
 
+## Step 8
+
 ### Visit the application
 
 ```
@@ -296,7 +300,16 @@ You may see your splendid application or you may see `The page you were looking 
 
 If you get that error, it is likely that you simply need to correct the URL e.g. add on '/hotels'
 
+If you did get this error, make sure you set a `root route` in routes.rb. There are comments within that file explaining how to do that. (And Daryn knows...)
+
+
+## Step 9
+
+### Update the app
+
 To re-deploy, simply use Git to push another version of the app to Heroku.
+
+## Step 10
 
 ##### Ta-da! :) 
 
