@@ -17,16 +17,18 @@ Usage:
   rails generate migration NAME [field[:type][:index] field[:type][:index]] [options]
 ```
 
+The NAME must be something that you have not used before, or it will overwrite the previous migration file.
+
 Using standard naming conventions for the migration name can help rails infer what we are trying to achieve. 
 
 ```
-rails generate migration AddFieldsToQuestion body:text
+rails generate migration AddBodyToQuestion body:text
 ```
 Text is used for text fields which require a long length - the database will use different types for body:string and body:text.
 
 The migration file looks like this:
 ```
-class AddFieldsToQuestion < ActiveRecord::Migration
+class AddBodyToQuestion < ActiveRecord::Migration
   def change
     add_column :questions, :body, :text
   end
