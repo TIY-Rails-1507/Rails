@@ -55,7 +55,7 @@ To display the validation errors we can update the form partial:
 		<%= f.text_area :body, cols: 30, rows: 10 %>
 	</p>
 	<p>
-		<%= f.submit  %>
+		<%= f.submit %>
 	</p>
 <% end %>
 ```
