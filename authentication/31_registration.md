@@ -56,7 +56,7 @@ end
 
 In the Users 'new' view we can add a form that will allow a user to sign up:
 
-```
+```html
 <!-- app/views/users/new.html.erb -->
 <h3>Sign up</h3>
 
