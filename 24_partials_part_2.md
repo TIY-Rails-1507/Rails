@@ -42,7 +42,7 @@ class QuestionsController < ApplicationController
 
 The index view has the following:
 
-```html
+```erb
 <h3>Questions</h3>
 
 <p><%= link_to "Add Question", new_question_path %> </p>
