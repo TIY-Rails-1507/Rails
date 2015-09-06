@@ -151,7 +151,7 @@ The white listing mentioned here is the `params.require ...` line which is used 
 
 Now that we have a few users in the database we can test the `authenticate` method which Rails provides when using `has_secure_password`. 
 
-The `authenticate` method is a way to determine if the password if valid for a given user. This method will first hash the password and then compare the hash to the stored password_digest.
+The `authenticate` method is a way to determine if the password is valid for a given user. This method will first hash the password and then compare the hash to the stored password_digest.
 
 ```
 $ rails c
