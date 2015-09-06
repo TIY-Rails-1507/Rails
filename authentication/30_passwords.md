@@ -48,9 +48,7 @@ These fields have the following validations applied to them:
 
 These validations can be configured, see the documentation referenced below.
 
-When we include `password_confitmation` then Rails will generate methods which provide the following functionality:
-* encrypt a password 
-* authenticate a user
+When we include `password_confitmation` then Rails will generate a method called `authenticate` which can verify that the correct password was supplied for a given user.
 
 We need to make a few more changes before all of this is available. `has_secure_password` requires the model to have a field in the database table called `password_digest`. This will store the hashed version of the password. 
 
