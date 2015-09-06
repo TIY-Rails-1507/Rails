@@ -108,7 +108,6 @@ Loading development environment (Rails 4.2.3)
 2.2.2 :009 > user.save
    (0.1ms)  begin transaction
   User Exists (0.3ms)  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('SUE@YAHOO.com') LIMIT 1
-DOWN
   SQL (0.5ms)  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Sue"], ["email", "sue@yahoo.com"], ["password_digest", "$2a$10$EZFIozMxbqCUL8NDCHQB9uzIA.uyQhnCmBuNbzOrLKgjxCJrSuEGi"], ["created_at", "2015-09-06 13:07:28.735631"], ["updated_at", "2015-09-06 13:07:28.735631"]]
    (1.5ms)  commit transaction
  => true 
@@ -133,7 +132,6 @@ This user was not saved as the password confirmation was incorrect.
 2.2.2 :019 > User.create(name: "mark", email: "mark@hotmail.com", password: "dontshow")
    (0.1ms)  begin transaction
   User Exists (0.2ms)  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('mark@hotmail.com') LIMIT 1
-DOWN
   SQL (0.3ms)  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "mark"], ["email", "mark@hotmail.com"], ["password_digest", "$2a$10$c26j.meZmhtSoS65014ZlOlFpaNISH.MPNEYEiuFUC2M4xrHK9NUq"], ["created_at", "2015-09-06 13:10:52.337099"], ["updated_at", "2015-09-06 13:10:52.337099"]]
    (0.7ms)  commit transaction
  => #<User id: 5, name: "mark", email: "mark@hotmail.com", created_at: "2015-09-06 13:10:52", updated_at: "2015-09-06 13:10:52", password_digest: "$2a$10$c26j.meZmhtSoS65014ZlOlFpaNISH.MPNEYEiuFUC2..."> 
@@ -159,22 +157,27 @@ Loading development environment (Rails 4.2.3)
 2.2.2 :001 > User.create(name: "Mike", email: "mike@hotmail.com", password: "mike_pwd", password_confirmation: "mike_pwd")
    (0.1ms)  begin transaction
   User Exists (0.2ms)  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('mike@hotmail.com') LIMIT 1
-DOWN
   SQL (0.4ms)  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Mike"], ["email", "mike@hotmail.com"], ["password_digest", "$2a$10$QunZ8UGqohZSPryekV3FPuAww1eu6N8/84UL1u/YwIp0DjKT/QbAy"], ["created_at", "2015-09-06 13:35:54.794011"], ["updated_at", "2015-09-06 13:35:54.794011"]]
    (0.5ms)  commit transaction
  => #<User id: 6, name: "Mike", email: "mike@hotmail.com", created_at: "2015-09-06 13:35:54", updated_at: "2015-09-06 13:35:54", password_digest: "$2a$10$QunZ8UGqohZSPryekV3FPuAww1eu6N8/84UL1u/YwIp..."> 
+ 
+ 
  2.2.2 :003 > mike = User.find_by(name: "Mike")
   User Load (0.1ms)  SELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT 1  [["name", "Mike"]]
  => #<User id: 6, name: "Mike", email: "mike@hotmail.com", created_at: "2015-09-06 13:35:54", updated_at: "2015-09-06 13:35:54", password_digest: "$2a$10$QunZ8UGqohZSPryekV3FPuAww1eu6N8/84UL1u/YwIp..."> 
+
 2.2.2 :004 > mike.authenticate("invalid")
  => false 
 2.2.2 :005 > mike.authenticate("MIKE_PWD")
  => false 
 2.2.2 :006 > mike.authenticate("mike_pwd")
  => #<User id: 6, name: "Mike", email: "mike@hotmail.com", created_at: "2015-09-06 13:35:54", updated_at: "2015-09-06 13:35:54", password_digest: "$2a$10$QunZ8UGqohZSPryekV3FPuAww1eu6N8/84UL1u/YwIp..."> 
+
+
 2.2.2 :007 > sue = User.find_by(email: "sue@yahoo.com")
   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "sue@yahoo.com"]]
  => #<User id: 4, name: "Sue", email: "sue@yahoo.com", created_at: "2015-09-06 13:07:28", updated_at: "2015-09-06 13:07:28", password_digest: "$2a$10$EZFIozMxbqCUL8NDCHQB9uzIA.uyQhnCmBuNbzOrLKg..."> 
+
 2.2.2 :008 > sue.authenticate("what")
  => false 
 2.2.2 :009 > sue.authenticate("mypassword")
