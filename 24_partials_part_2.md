@@ -125,6 +125,7 @@ Notice the repetition in each table. That is what we are going to remove in this
 First we will extract a partial to handle the table for All Questions. To do this we create a partial in app/views/questions called '_questions_table.html.erb'. We will copy the 'All Questions' table into it:
 
 ```html
+<!-- app/views/questions/_questions_table.html.erb -->
 <table border="1">
   <caption>All Questions</caption>
   <tr>
@@ -150,11 +151,11 @@ First we will extract a partial to handle the table for All Questions. To do thi
 
 ```
 
-As with all partials the name of the files starts with an underscore. To render this partial, we use `<%= render "questions_table" %>`. This is without the underscore or file extensions. 
+As with all partials the name of the file starts with an underscore. To render this partial, we use `<%= render "questions_table" %>`. This is without the underscore or file extensions. 
 
 Both the view and partial are in the same folder. If they were not we would need to prefix the name of the partial with the folder path e.g. `render "shared/questions_table"`.
 
-As we copied the 'all questions' table into the partial, we simply need to render the partial and 'index' page remains unchanged:
+As we copied the 'all questions' table into the partial, we simply need to render the partial in the index page and the user will see the same page:
 
 ```html
 <!-- app/views/questions/index.html.erb -->
@@ -174,13 +175,15 @@ As we copied the 'all questions' table into the partial, we simply need to rende
     <th></th>    
   </tr>
   ...
+  ...
+  ...
 ```
 
-The partial makes use of '@all_questions'. This works as it was in scope in the view that rendered the partial. While this works for the All Questions table, we can't use this partial as it is for the Unanswered Questions table. To do that we need to make the partial more flexible. 
+The partial makes use of `@all_questions`. This works as it was in scope in the view that rendered the partial. While this works for the All Questions table, we can't use this partial as it is for the Unanswered Questions table - it needs `@unanswered_questions`. To pass different 'questions' to the partial we need to make the partial more flexible. 
 
 ## Making the partial more flexible
 
-In order to reuse the partial for all 3 tables we need to pass a 'local variable' into the partial. To do this we render the partial as follows:
+In order to reuse the partial for all 3 tables (or lists of questions) we need to pass a 'local variable' into the partial. To do this we render the partial as follows:
 
 ```html
 <!-- app/views/questions/index.html.erb -->
@@ -189,6 +192,9 @@ In order to reuse the partial for all 3 tables we need to pass a 'local variable
 <p><%= link_to "Add Question", new_question_path %> </p>
 
 <%= render partial: "questions_table", locals: { questions: @all_questions} %>
+...
+...
+...
 ``` 
 
 We can then access this local variable in the partial as follows:
@@ -238,12 +244,12 @@ Now we can try and use the partial to replace the Unanswered Questions:
   <caption>Answered Questions</caption>
   <tr>
     <th>Title</th>
-    .
-    .
-    .
+    ...
+    ...
+    ...
 ```
 
-This got us most of the way, the only problem is the hard coded caption, which now shows 'All Questions' on the All Questions table as well as the Unanswered Questions table. To fix this we can pass another parameter in:
+This got us most of the way, the only problem is the hard coded caption, which now shows 'All Questions' on the All Questions table as well as the Unanswered Questions table. To fix this we can pass in an additional parameter:
 
 ```html
 <!-- app/views/questions/index.html.erb -->
@@ -253,6 +259,9 @@ This got us most of the way, the only problem is the hard coded caption, which n
 
 <%= render partial: "questions_table", locals: { questions: @all_questions, caption: "All Questions" } %>
 <%= render partial: "questions_table", locals: { questions: @unanswered_questions, caption: "Unanswered Questions" } %>
+...
+...
+...
 ```
 
 Then update the partial to make use of this new variable:
@@ -301,9 +310,9 @@ The view is a lot smaller and cleaner now. Next we explore different ways of usi
 
 ## Using the built in variable
 
-There is a 'built in' or implicit variable that we can use with any partial. To use this we pass the variable in using the key of `:object` and then the partial can access this variable by using the name of the partial. 
+There is a 'built in' or implicit variable that we can use with any partial. To use this we pass a variable in using a key of `:object` and then the partial can access this variable by using the name of the partial. 
 
-To use this the view changes to this:
+To use this approach, the view changes to this:
 
 ```html
 <!-- app/views/questions/index.html.erb -->
@@ -333,12 +342,12 @@ And the partial now accesses 'object' by using the name of the partial:
   <tr>
     <td><%= link_to(question.title,  question_path(question)) %></td>
     <td><%= format_body(question) %></td>
-.
-.
-.
+...
+...
+...
 ```
 
-To make the code a bit more readable we can change the name of the partial from `_questions_table.html.erb` to `_questions.html.erb`. Then the code in the partial becomes:
+To make the code a bit more readable we can change the file name of the partial from `_questions_table.html.erb` to `_questions.html.erb`. Then the code in the partial becomes:
 
 ```html
 <!-- app/views/questions/_questions.html.erb -->
@@ -353,9 +362,12 @@ To make the code a bit more readable we can change the name of the partial from 
   </tr>
   <% questions.each do | question | %>  
   <tr>
+  ...
+  ...
+  ...
 ```
 
-With the view updating to:
+The view needs to be updated to use the new name of the partial:
 
 ```html
 <!-- app/views/questions/index.html.erb -->

@@ -9,11 +9,13 @@ Let's assume that we have been asked to change the layout. Users don't like the 
 
 <div>
 	<h3><%= caption %></h3> 
-	<% questions.each do | question | %>  
-		<h4><%= question.title %></h4>
-		<p><%= format_body(question) %></p>
-		<p><%= link_to(pluralize(question.answers.count, "answer"), question_answers_path(question))  %></p>
-		<p><%= link_to "Show", question_path(question) %> | <%= link_to "Edit", edit_question_path(question) %> |  <%= link_to "Delete", question_path(question), method: :delete, data: {confirm: "Would you like to delete this?"} %></p>
+	<% questions.each do | question | %> 
+		<div> 
+			<h4><%= question.title %></h4>
+			<p><%= format_body(question) %></p>
+			<p><%= link_to(pluralize(question.answers.count, "answer"), question_answers_path(question))  %></p>
+			<p><%= link_to "Show", question_path(question) %> | <%= link_to "Edit", edit_question_path(question) %> |  <%= link_to "Delete", question_path(question), method: :delete, data: {confirm: "Would you like to delete this?"} %></p>
+		</div>
 	<% end %>
 </div>
 
@@ -64,12 +66,12 @@ According to the Rails documentation "if you have an instance of a model to rend
 
 Rails figures out the name of the partial from the type of the model, not the name of the variable.
 
-You can do this when rendering a partial from a partial, or when rendering a partial from a template such as index.html.erb.
+You can do this when rendering a partial from a partial, or when rendering a partial from a view template such as index.html.erb.
 
 
 ## Partials and collections 
 
-In the questions partial, we are dealing with a collection of 'questions'. The render method has a `:collection` option to use when dealing with collections. 
+In the questions partial, we are dealing with a list of 'questions'. The render method has a `:collection` option to use when dealing with collections. 
 
 When using this, the partial will be rendered once for each item in the collection. 
 
@@ -99,13 +101,13 @@ In case you were wondering, there is also a shorthand for this:
 Rails determines the partial to use by looking at the type of each item (not the name of the collection variable). This means that we could use this format from within the index page if we wanted to e.g.
 
 ```html
-.
-.
-.
+...
+...
+...
 <%= render @all_questions %>
-.
-.
-.
+...
+...
+...
 ```
 
 
