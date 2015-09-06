@@ -30,7 +30,6 @@ class User < ActiveRecord::Base
     private 
 
     def downcase_email
-    	puts "DOWN"
     	self.email = email.downcase
     end
 end
@@ -49,9 +48,7 @@ These fields have the following validations applied to them:
 
 These validations can be configured, see the documentation referenced below.
 
-When we include `password_confitmation` then Rails will generate methods which provide the following functionality:
-* encrypt a password 
-* authenticate a user
+When we include `password_confitmation` then Rails will generate a method called `authenticate` which can verify that the correct password was supplied for a given user.
 
 We need to make a few more changes before all of this is available. `has_secure_password` requires the model to have a field in the database table called `password_digest`. This will store the hashed version of the password. 
 
@@ -111,7 +108,6 @@ Loading development environment (Rails 4.2.3)
 2.2.2 :009 > user.save
    (0.1ms)  begin transaction
   User Exists (0.3ms)  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('SUE@YAHOO.com') LIMIT 1
-DOWN
   SQL (0.5ms)  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Sue"], ["email", "sue@yahoo.com"], ["password_digest", "$2a$10$EZFIozMxbqCUL8NDCHQB9uzIA.uyQhnCmBuNbzOrLKgjxCJrSuEGi"], ["created_at", "2015-09-06 13:07:28.735631"], ["updated_at", "2015-09-06 13:07:28.735631"]]
    (1.5ms)  commit transaction
  => true 
@@ -136,7 +132,6 @@ This user was not saved as the password confirmation was incorrect.
 2.2.2 :019 > User.create(name: "mark", email: "mark@hotmail.com", password: "dontshow")
    (0.1ms)  begin transaction
   User Exists (0.2ms)  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('mark@hotmail.com') LIMIT 1
-DOWN
   SQL (0.3ms)  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "mark"], ["email", "mark@hotmail.com"], ["password_digest", "$2a$10$c26j.meZmhtSoS65014ZlOlFpaNISH.MPNEYEiuFUC2M4xrHK9NUq"], ["created_at", "2015-09-06 13:10:52.337099"], ["updated_at", "2015-09-06 13:10:52.337099"]]
    (0.7ms)  commit transaction
  => #<User id: 5, name: "mark", email: "mark@hotmail.com", created_at: "2015-09-06 13:10:52", updated_at: "2015-09-06 13:10:52", password_digest: "$2a$10$c26j.meZmhtSoS65014ZlOlFpaNISH.MPNEYEiuFUC2..."> 
@@ -154,7 +149,7 @@ The white listing mentioned here is the `params.require ...` line which is used 
 
 Now that we have a few users in the database we can test the `authenticate` method which Rails provides when using `has_secure_password`. 
 
-The `authenticate` method is a way to determine if the password if valid for a given user. This method will first hash the password and then compare the hash to the stored password_digest.
+The `authenticate` method is a way to determine if the password is valid for a given user. This method will first hash the password and then compare the hash to the stored password_digest.
 
 ```
 $ rails c
@@ -162,22 +157,27 @@ Loading development environment (Rails 4.2.3)
 2.2.2 :001 > User.create(name: "Mike", email: "mike@hotmail.com", password: "mike_pwd", password_confirmation: "mike_pwd")
    (0.1ms)  begin transaction
   User Exists (0.2ms)  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('mike@hotmail.com') LIMIT 1
-DOWN
   SQL (0.4ms)  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Mike"], ["email", "mike@hotmail.com"], ["password_digest", "$2a$10$QunZ8UGqohZSPryekV3FPuAww1eu6N8/84UL1u/YwIp0DjKT/QbAy"], ["created_at", "2015-09-06 13:35:54.794011"], ["updated_at", "2015-09-06 13:35:54.794011"]]
    (0.5ms)  commit transaction
  => #<User id: 6, name: "Mike", email: "mike@hotmail.com", created_at: "2015-09-06 13:35:54", updated_at: "2015-09-06 13:35:54", password_digest: "$2a$10$QunZ8UGqohZSPryekV3FPuAww1eu6N8/84UL1u/YwIp..."> 
+ 
+ 
  2.2.2 :003 > mike = User.find_by(name: "Mike")
   User Load (0.1ms)  SELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT 1  [["name", "Mike"]]
  => #<User id: 6, name: "Mike", email: "mike@hotmail.com", created_at: "2015-09-06 13:35:54", updated_at: "2015-09-06 13:35:54", password_digest: "$2a$10$QunZ8UGqohZSPryekV3FPuAww1eu6N8/84UL1u/YwIp..."> 
+
 2.2.2 :004 > mike.authenticate("invalid")
  => false 
 2.2.2 :005 > mike.authenticate("MIKE_PWD")
  => false 
 2.2.2 :006 > mike.authenticate("mike_pwd")
  => #<User id: 6, name: "Mike", email: "mike@hotmail.com", created_at: "2015-09-06 13:35:54", updated_at: "2015-09-06 13:35:54", password_digest: "$2a$10$QunZ8UGqohZSPryekV3FPuAww1eu6N8/84UL1u/YwIp..."> 
+
+
 2.2.2 :007 > sue = User.find_by(email: "sue@yahoo.com")
   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "sue@yahoo.com"]]
  => #<User id: 4, name: "Sue", email: "sue@yahoo.com", created_at: "2015-09-06 13:07:28", updated_at: "2015-09-06 13:07:28", password_digest: "$2a$10$EZFIozMxbqCUL8NDCHQB9uzIA.uyQhnCmBuNbzOrLKg..."> 
+
 2.2.2 :008 > sue.authenticate("what")
  => false 
 2.2.2 :009 > sue.authenticate("mypassword")
