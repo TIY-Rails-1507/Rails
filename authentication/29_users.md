@@ -139,9 +139,12 @@ In the code above there is this line:
 ```ruby
 	def downcase_email
     	self.email = email.downcase
-    end
+  end
 ```
-Using `self` on the right of the equals is optional, however it is mandatory on the left. If we did not use `self` Ruby would think that we were defining a local variable.
+Using `self` on the right of the equals sign is optional, however it is mandatory on the left. If we did not use `self` Ruby would think that we were defining a local variable.
 
+Information on `before_create` and `before_save`, and the order of calls can be found here: http://stackoverflow.com/a/6249572/259477 
 
-Information on before_create and before_save, and the order of calls can be found here: http://stackoverflow.com/a/6249572/259477 
+## Exercise 
+
+Add user models to Explore. These users should have a 'name' and 'email' as shown above. We will add passwords in the next section.
