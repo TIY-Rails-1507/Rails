@@ -30,7 +30,6 @@ class User < ActiveRecord::Base
     private 
 
     def downcase_email
-    	puts "DOWN"
     	self.email = email.downcase
     end
 end
