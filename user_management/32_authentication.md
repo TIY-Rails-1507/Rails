@@ -1,4 +1,4 @@
-# Sign In
+# Authentication
 
 While we have added the functionality to create new users, we still need to create the sign in functionality.
 
@@ -333,7 +333,5 @@ end
 
 ## Exercise 
 
-Add the sign up, login and log out functionality to Explore.
-
- 
+Add the sign up, login and log out functionality to Explore. 
 
