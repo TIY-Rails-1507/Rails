@@ -54,7 +54,7 @@ The following is added to the model class to make use of this validator:
 
 ```ruby
 # app/models/user.rb
-require_dependency 'validators/email_validator.rb'
+require_dependency 'app/validators/email_validator.rb'
 class User < ActiveRecord::Base
 	validates :name,  presence: true, length: { maximum: 50 }
   	validates :email, presence: true, length: { maximum: 200 }
