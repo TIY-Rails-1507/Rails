@@ -9,4 +9,11 @@ Use the Gravatar service to show an avatar on the users profile page.
 
 Create a users index page which shows all of the current users with their Gravatar avatars
 
-Ref: https://en.gravatar.com/
+Notes: 
+* Unlike other services this is usually done in a helper
+* You don't need to use a gem, this can be done from scratch
+* Don't use a gem
+
+Refs: 
+* https://en.gravatar.com/
+* https://en.gravatar.com/site/implement/images/ruby/
