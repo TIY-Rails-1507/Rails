@@ -7,6 +7,7 @@ Create a new application that let's people get a quote for buying wine. We won't
 They should be able to select different wines and different quantities e.g.
 
 Shiraz * 2 
+
 Bordeaux * 5
 
 Each bottle has a price and the grand total is shown.
