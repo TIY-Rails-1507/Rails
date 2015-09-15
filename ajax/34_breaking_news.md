@@ -56,6 +56,56 @@ From this point on you are expected to commit your work on a regular basis. If y
 
 ### Scaffolding 
 
+In the past we have used commands such as `rails generate model title:string body:text`. This uses the 'model' generator. Now we are going to use a new generator called 'scaffold'. Use the following command to see how it works:
 
+```
+breaking_news $ rails generate scaffold --help
+```
 
+This brings up help content wich includes the following:
 
+```
+Scaffolds an entire resource, from model and migration to controller and views, along with a full test suite. The resource is ready to use as a starting point for your RESTful, resource-oriented application.
+```
+
+The following examples are given:
+
+```
+Examples:
+    `rails generate scaffold post`
+    `rails generate scaffold post title body:text published:boolean`
+    `rails generate scaffold purchase amount:decimal tracking_id:integer:uniq`
+    `rails generate scaffold user email:uniq password:digest`
+```
+
+We want an article resource in our application and we can generate this with the following command:
+
+```
+rails generate scaffold article headline:string body:text
+```
+
+This command has created a controller, views, a model, and a migration. Before we can see it in action we need to run the migration:
+
+```
+rake db:migrate
+```
+
+Next we can see which routes we have:
+
+```
+breaking_news $ rake routes
+      Prefix Verb   URI Pattern                  Controller#Action
+    articles GET    /articles(.:format)          articles#index
+             POST   /articles(.:format)          articles#create
+ new_article GET    /articles/new(.:format)      articles#new
+edit_article GET    /articles/:id/edit(.:format) articles#edit
+     article GET    /articles/:id(.:format)      articles#show
+             PATCH  /articles/:id(.:format)      articles#update
+             PUT    /articles/:id(.:format)      articles#update
+             DELETE /articles/:id(.:format)      articles#destroy
+
+```
+
+We can now use the application by browsing to `http://localhost:3000/articles`. This should show the following screen:
+
+<img src="images/basic_app.png" alt="Basic App" width="500px" >
