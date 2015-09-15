@@ -127,7 +127,7 @@ end
 Experiment by trying to add an article without a headline or body.
 
 
-## Seed the database
+### Seed the database
 
 We would like to add some test data so that we have some content to work with. We can do this by opening `seeds.rb` and adding the following lines:
 
@@ -152,6 +152,10 @@ This will reload the database scheme by running the migrations, and then run the
 Note: I needed to restart my Rails server to see the changes. 
 
 More information can be found here: https://codedecoder.wordpress.com/2013/04/25/rake-db-seed-in-rails/
+
+
+Pro-tip: Commit your work to Git
+
 
 
 
