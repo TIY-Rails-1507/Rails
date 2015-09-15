@@ -134,7 +134,12 @@ We would like to add some test data so that we have some content to work with. W
 ```ruby
 # db/seeds.rb
 Article.create([{ headline: 'Ruby', body: 'Ruby is a great programming language' }, 
-	{ headline: 'JavaScript', body: 'JavaScript adds Jazz Hands to a website' }])
+	{ headline: 'JavaScript', body: 'JavaScript adds Jazz Hands to a website' },
+	{ headline: 'Java', body: 'Java technology allows you to work and play in a secure computing environment. ' },
+	{ headline: 'PHP', body: 'PHP is a server-side scripting language designed for web development but also used as a general-purpose programming language.' },
+	{ headline: 'Python', body: 'Python is a programming language that lets you work quickly
+and integrate systems more effectively.' },
+	{ headline: 'C#', body: 'C# (pronounced as see sharp) is a multi-paradigm programming language.' },])
 ```
 
 To add this data to the database we can run `rake db:seed`. However we may want to get rid of previous data first, to do that we run the following:
@@ -142,7 +147,7 @@ To add this data to the database we can run `rake db:seed`. However we may want 
 ```
 breaking_news $ rake db:reset
 ```
-This will reload the database scheme bu running the migrations, and then run the seeds file.
+This will reload the database scheme by running the migrations, and then run the seeds file.
 
 Note: I needed to restart my Rails server to see the changes. 
 
