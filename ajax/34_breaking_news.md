@@ -109,3 +109,44 @@ edit_article GET    /articles/:id/edit(.:format) articles#edit
 We can now use the application by browsing to `http://localhost:3000/articles`. This should show the following screen:
 
 <img src="images/basic_app.png" alt="Basic App" width="500px" >
+
+
+You can now use this application to add articles.
+
+One change we should make is to make the headline and body required fields. Open the article model and make these two fields required.
+
+```ruby
+# app/models/article.rb
+
+class Article < ActiveRecord::Base
+	validates :headline, :body, presence: true
+end
+
+```
+
+Experiment by trying to add an article without a headline or body.
+
+
+## Seed the database
+
+We would like to add some test data so that we have some content to work with. We can do this by opening `seeds.rb` and adding the following lines:
+
+```ruby
+# db/seeds.rb
+Article.create([{ headline: 'Ruby', body: 'Ruby is a great programming language' }, 
+	{ headline: 'JavaScript', body: 'JavaScript adds Jazz Hands to a website' }])
+```
+
+To add this data to the database we can run `rake db:seed`. However we may want to get rid of previous data first, to do that we run the following:
+
+```
+breaking_news $ rake db:reset
+```
+This will reload the database scheme bu running the migrations, and then run the seeds file.
+
+Note: I needed to restart my Rails server to see the changes. 
+
+More information can be found here: https://codedecoder.wordpress.com/2013/04/25/rake-db-seed-in-rails/
+
+
+
