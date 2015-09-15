@@ -150,11 +150,10 @@ This will reload the database scheme by running the migrations, and then run the
 
 Note: I needed to restart my Rails server to see the changes. 
 
-More information can be found here: https://codedecoder.wordpress.com/2013/04/25/rake-db-seed-in-rails/
+
+Pro-tip: _Commit your work to Git_
 
 
-Pro-tip: Commit your work to Git
-
-
-Reference:
+References:
+* https://codedecoder.wordpress.com/2013/04/25/rake-db-seed-in-rails/ 
 * http://www.korenlc.com/rails-generate-model-vs-resourse-vs-scaffold/
