@@ -6,7 +6,7 @@ The goal is to start making AJAX calls from an HTML page running in the browser.
 
 This means that the server needs to act as an API responding in JSON instead of generating an HTML response. It may surprise you to know that 'breaking_news' can already be used as an API. Try going to the following URL: `http://localhost:3000/articles.json`. That should display JSON similar to this:
 
-<img src="images/json_results.pnp.png" alt="Basic App" width="700px" >
+<img src="images/json_results.png" alt="JSON" width="700px" >
 
 The reason this works is because we have appended `.json` onto the request. This informs the controller that we are requesting JSON. This changes the behavior of the actions. Now the `index` action does not render `app/views/index.html.erb`, instead it uses `app/views/index.json.builder` to return JSON.
 
@@ -49,6 +49,6 @@ References:
 * http://api.rubyonrails.org/classes/ActionController/MimeResponds.html
 * http://stackoverflow.com/questions/9492362/rails-how-does-the-respond-to-block-work
 * http://www.restapitutorial.com/httpstatuscodes.html
-..
+
 
 
