@@ -40,7 +40,7 @@ rails s
 Navigate to `http://localhost:3000/` and you should see the initial setup screen:
 
 ![Welcome](images/welcome.png?raw=true "Welcome Screen")
-<img src="images/welcome.png" alt="Welcome Screen" width="100px" >
+<img src="images/welcome.png" alt="Welcome Screen" width="300px" >
 
 Next we add this to a local git repo:
 
