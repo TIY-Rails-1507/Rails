@@ -156,5 +156,5 @@ More information can be found here: https://codedecoder.wordpress.com/2013/04/25
 Pro-tip: Commit your work to Git
 
 
-
-
+Reference:
+* http://www.korenlc.com/rails-generate-model-vs-resourse-vs-scaffold/
