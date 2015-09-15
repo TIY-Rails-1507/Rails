@@ -110,7 +110,6 @@ We can now use the application by browsing to `http://localhost:3000/articles`. 
 
 <img src="images/basic_app.png" alt="Basic App" width="500px" >
 
-
 You can now use this application to add articles.
 
 One change we should make is to make the headline and body required fields. Open the article model and make these two fields required.
