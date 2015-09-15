@@ -39,7 +39,7 @@ rails s
 
 Navigate to `http://localhost:3000/` and you should see the initial setup screen:
 
-![Welcome](/images/welcome.jpg?raw=true "Welcome Screen")
+![Welcome](/ajax/images/welcome.jpg?raw=true "Welcome Screen")
 
 Next we add this to a local git repo:
 
