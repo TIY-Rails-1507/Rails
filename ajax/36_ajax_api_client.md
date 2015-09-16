@@ -54,23 +54,23 @@ Next we need to make a request to the server to fetch the data. This can be done
 
 ```js
 // app/assets/javascripts/news.js
-if($("#articles-list").length > 0) {
-	$(document).on('ready page:ready', function () {
-		$.ajax({
-			type: "GET",
-			contentType: "application/json; charset=utf-8",
-			url: "/articles.json",
-			dataType: "json",
-			success: function (result) {
-				alert("It worked!");
-				alert("The first headline is: " + result[0].headline);
-			},
-			error: function (){
-				window.alert("There was an error!");
-			}
-		}); 
-	});
-};
+$(document).on('ready page:ready', function () {
+	if($("#articles-list").length > 0) {  
+        $.ajax({
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            url: "/articles.json",
+            dataType: "json",
+            success: function (result) {
+                alert("It worked!");
+                alert("The first headline is: " + result[0].headline);
+            },
+            error: function (){
+                window.alert("There was an error!");
+            }
+        }); 
+    };
+});
 
 ```
 
