@@ -54,49 +54,87 @@ Next we need to make a request to the server to fetch the data. This can be done
 
 ```js
 // app/assets/javascripts/news.js
-
-$(document).on('ready page:ready', function () {
-	$.ajax({
-		type: "GET",
-		contentType: "application/json; charset=utf-8",
-		url: "/articles.json",
-		dataType: "json",
-		success: function (result) {
-			
-		},
-		error: function (){
-			window.alert("something wrong!");
-		}
-	}); 
-});
+if($("#articles-list").length > 0) {
+	$(document).on('ready page:ready', function () {
+		$.ajax({
+			type: "GET",
+			contentType: "application/json; charset=utf-8",
+			url: "/articles.json",
+			dataType: "json",
+			success: function (result) {
+				alert("It worked!");
+				alert("The first headline is: " + result[0].headline);
+			},
+			error: function (){
+				window.alert("something wrong!");
+			}
+		}); 
+	});
+};
 
 ```
 
+This script will be included on every page in the application. We only want to perform the request on pages which have a div with an ID of "articles-list". This is why we use `if("#articles-list").length > 0)` is a guard.
+
 Using `$(document).on('ready page:ready'...` is a way of making sure that the DOM (Document Object Model) has loaded, and we can start using JavaScript to modify it.
 
-Next is the AJAX call provided by the JQuery library. This does a 'GET' on `/articles.json`.
+Next is the AJAX call provided by the JQuery library. This does a 'GET' on `/articles.json`. This returns JSON, and JavaScript can implicitly parse this format into JavaScript objects. The `result` object is actually an array, you can see this being used in the second alert messages.
+
+The `error` function gets called if there was a problem fetching data from the server. 
 
 ## Exercise 
 
 Use JQuery to append the returned data to the div with an ID of 'articles-list' which is found in `app/static/news.html.erb`. The logic to achieve this will replace the two alerts within the success function in `news.js`.
 
-Hint:
+Hints
+
+*Do not make an HTML table*, create multiple div tags that will be nested within the 'articles-list' div. Each of these nested div tags can be multiple divs e.g.
+
+```html
+<div id="articles-list">
+	<div>
+		<div>
+			<h4>Headline 1 goes here</h4>
+		</div>
+		<div>
+			The body goes here
+		</div>
+	</div>
+	<hr />
+	<div>
+		<div>
+			<h4>Headline 2 goes here</h4>
+		</div>
+		<div>
+			The body goes here
+		</div>
+	</div>
+</div>
+```
+
+Writing the data to the console:
 
 ```js
 ...
 ...
 ...
-success: function (result) {
-	for(var i = 0; i < result.length; i++) {
-		console.log(result[i].headline + " - " + result[i].body);
-	}
-},
+		url: "/articles.json",
+		dataType: "json",
+		success: function (result) {
+			for(var i = 0; i < result.length; i++) {
+				console.log(result[i].headline + " - " + result[i].body);
+			}
+		},
 ...
 ...
 ...
-
 ```
 
+Feel free to rename `result` to something else such as `articles`.
+
+How to set the HTML contents of a div?
+* http://api.jquery.com/html/#html2
+* http://api.jquery.com/append/
 
 #### References
 
@@ -118,3 +156,6 @@ Making a post with JQuery
 
 Stringify 
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
+
+$.ajax vs $.post  
+* http://stackoverflow.com/a/12820103/259477
