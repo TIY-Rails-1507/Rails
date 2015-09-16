@@ -29,16 +29,30 @@ Now we can add a static page as a view template:
 <h1>Breaking News</h1>
 
 <p>These are the stories</p>
+
+<div id="articles-list"></div>
 ```
 
+And try this URL in the browser `http://localhost:3000/news`.  That should load the page and you should see the "Breaking News" header.
 
-And try this URL in the browser `http://localhost:3000/news`
 
-That should load the page and you should see the "Breaking News" header.
+## HTTP Request with JQuery
+
+Next we need to add the JavaScript needed to request information from the server. We can begin by adding a JavaScript file to `app/assets/javascripts` called `news.js`.
+
+```js
+// app/assets/javascripts/news.js
+
+alert("Loaded");
+
+```
+
+Making a request to the server can be done in plain JavaScript, however JQuery makes this easier. 
+
 
 
 
 References: 
 * http://www.peoplecancode.com/tutorials/how-to-create-static-pages-in-ruby-on-rails-application
 * http://stackoverflow.com/a/4966764/259477
-
+* http://railscasts.com/episodes/279-understanding-the-asset-pipeline
