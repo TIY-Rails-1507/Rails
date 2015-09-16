@@ -66,7 +66,7 @@ if($("#articles-list").length > 0) {
 				alert("The first headline is: " + result[0].headline);
 			},
 			error: function (){
-				window.alert("something wrong!");
+				window.alert("There was an error!");
 			}
 		}); 
 	});

@@ -34,7 +34,7 @@ $(document).on('ready page:ready', function () {
 				$( "#articles-list" ).html(innerHtml);
 			},
 			error: function (){
-				window.alert("something wrong!");
+				window.alert("There was an error!");
 			}
 		});
 	} 
@@ -71,7 +71,7 @@ function fetchArticles() {
 			$( "#articles-list" ).html(innerHtml);
 		},
 		error: function (){
-			window.alert("something wrong!");
+			window.alert("There was an error!");
 		}
 	});
 }
@@ -110,16 +110,29 @@ function fetchArticles() {
 			setTimeout(fetchArticles,5000); // A recursive function call
 		},
 		error: function (){
-			window.alert("something wrong!");
+			window.alert("There was an error!");
 		}
 	});
 }
 
 ```
 
-At the end of the success function `setTimeout` is used. This will wait 5000 milliseconds (5 seconds) and then call `fetchArticles` again. This means that `fetchArticles` is actually calling itself. This is known as a recursive call.  
+At the end of the success function `setTimeout` is used. This will wait 5000 milliseconds (5 seconds) and then call `fetchArticles` again. This means that `fetchArticles` is actually calling itself. This is known as a recursive call. This is not a true recursive call because of how `setTimeout` - see the 'Memory leak?' reference below.   
+
+You can test this by leaving the 'news' window open and adding or updating an article in another tab \ window.
+
+### Homework Challenge - i.e. this is for homework
+
+1. Apply the 'yellow fade' technique to any new article.
+
+2. Apply the 'yellow fade' technique to any article that has been updated.
+
+Hint: Ask Daryn for hints <-- almost a recursive hint :)
+
 
 #### References
 
 Discussion on polling with `setInterval` - http://stackoverflow.com/a/6835879/259477  
 That same page shows different ways of polling.
+
+Memory leak? - http://stackoverflow.com/a/12209319/259477
