@@ -44,7 +44,7 @@ The `create` action code looks quite daunting. This is because of the odd lookin
 
 If `@article.save` returns `true`, then either `format.html` or `format.json` will be invoked - not both. Similarly if `@article.save` returns `false` only `format.html` or `format.json` will be invoked. These format "methods" then return the correctly formatted response, in this case it is either HTML or JSON.
 
-References:
+#### References
 
 * http://api.rubyonrails.org/classes/ActionController/MimeResponds.html
 * http://stackoverflow.com/questions/9492362/rails-how-does-the-respond-to-block-work

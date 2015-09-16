@@ -154,6 +154,6 @@ Note: I needed to restart my Rails server to see the changes.
 Pro-tip: _Commit your work to Git_
 
 
-References:
+#### References
 * https://codedecoder.wordpress.com/2013/04/25/rake-db-seed-in-rails/ 
 * http://www.korenlc.com/rails-generate-model-vs-resourse-vs-scaffold/

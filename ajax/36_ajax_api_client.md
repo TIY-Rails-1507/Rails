@@ -55,25 +55,51 @@ Next we need to make a request to the server to fetch the data. This can be done
 ```js
 // app/assets/javascripts/news.js
 
-$(document).on('ready page:change', function () {
-     type: "GET",
-     contentType: "application/json; charset=utf-8",
-     url: "/news.json",
-     dataType: "json",
-     success: function (result) {
-        //do somthing here
-        window.alert("success!!");
-     },
-     error: function (){
-        window.alert("something wrong!");
-     }
+$(document).on('ready page:ready', function () {
+	$.ajax({
+		type: "GET",
+		contentType: "application/json; charset=utf-8",
+		url: "/articles.json",
+		dataType: "json",
+		success: function (result) {
+			
+		},
+		error: function (){
+			window.alert("something wrong!");
+		}
+	}); 
 });
 
 ```
 
+Using `$(document).on('ready page:ready'...` is a way of making sure that the DOM (Document Object Model) has loaded, and we can start using JavaScript to modify it.
+
+Next is the AJAX call provided by the JQuery library. This does a 'GET' on `/articles.json`.
+
+## Exercise 
+
+Use JQuery to append the returned data to the div with an ID of 'articles-list' which is found in `app/static/news.html.erb`. The logic to achieve this will replace the two alerts within the success function in `news.js`.
+
+Hint:
+
+```js
+...
+...
+...
+success: function (result) {
+	for(var i = 0; i < result.length; i++) {
+		console.log(result[i].headline + " - " + result[i].body);
+	}
+},
+...
+...
+...
+
+```
 
 
-References: 
+#### References
+
 * http://www.peoplecancode.com/tutorials/how-to-create-static-pages-in-ruby-on-rails-application
 * http://stackoverflow.com/a/4966764/259477
 * http://railscasts.com/episodes/279-understanding-the-asset-
