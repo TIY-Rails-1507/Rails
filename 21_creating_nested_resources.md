@@ -153,7 +153,7 @@ This is going to be very similar to the form we created before, only this time i
 
 <% end %>
 
-```html
+```
 
 Notice the line: `form_for([@question, @answer])`.
 
