@@ -167,7 +167,6 @@ Using `format.js` will result in Rails returning a matching `*.js.erb` file. For
 ```js
 // app/views/articles/create.js.erb
 alert("This file is generated on the server but executed on the client.");
-alert("The headline is: " + @article.headline);
 ```
 
 Just as a view is rendered in the browser, this code is run in the browser following a successful creation. 

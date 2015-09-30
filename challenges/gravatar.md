@@ -17,3 +17,5 @@ Notes:
 Refs: 
 * https://en.gravatar.com/
 * https://en.gravatar.com/site/implement/images/ruby/
+
+Huge Hint - http://railscasts.com/episodes/244-gravatar

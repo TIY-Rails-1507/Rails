@@ -105,16 +105,15 @@ This will make sure that the Gemfile.lock contains an entry for 'pg' but it won'
 
 ## Step 2
 
-We also need to use some 'Heroku gems'. Add the following to the and of the Gemfile:
+We also need to use some 'Heroku gems'. Add the following to the end of the Gemfile:
 
 ```
 group :production do
 	# Use pg for PostgreSQL on Heroku 
 	gem 'pg'
+	# To enable features such as static asset serving and logging on Heroku
+	gem 'rails_12factor'
 end
-
-# To enable features such as static asset serving and logging on Heroku
-gem 'rails_12factor'
 ```
 
 Once again run:
