@@ -267,9 +267,9 @@ end
 
 Here is a walk through of the key lines:
 
-```
+```ruby
 new_zealand = create(:team)
-``
+```
 This creates a new team in the database with the default values specified in the factory e.g. team name of New Zealand
 
 ```ruby
@@ -304,6 +304,10 @@ end
 ```
 
 Check that all the tests are still passing...
+
+## Challenge
+
+Update the tests that use the factory. Make overwrite the default rank of the factory so that it is clear that one team has a higher rank then the other.
 
 #### References 
 * https://semaphoreci.com/blog/2014/01/14/rails-testing-antipatterns-fixtures-and-factories.html 
