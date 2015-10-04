@@ -307,7 +307,7 @@ Check that all the tests are still passing...
 
 ## Challenge
 
-Update the tests that use the factory. Make overwrite the default rank of the factory so that it is clear that one team has a higher rank then the other.
+Update the tests that use the factory. Overwrite the default rank of the factory so that it is clear that one team has a higher rank then the other.
 
 #### References 
 * https://semaphoreci.com/blog/2014/01/14/rails-testing-antipatterns-fixtures-and-factories.html 
