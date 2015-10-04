@@ -160,7 +160,9 @@ database: /Users/daryn/dev/rwc/db/test.sqlite3
 
 ```
 
- We can now try to run the tests again:
+Rails uses the migrations to keep track of which migrations have been applied and that table does not even exist in the development database, and neither does the teams table.
+
+We can now try to run the tests again:
 
 ```
 rwc $ rake test

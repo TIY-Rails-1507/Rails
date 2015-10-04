@@ -29,3 +29,9 @@ Start the server and go to: http://localhost:3000/teams/index
 Did you see any errors? If so, fix-em! 
 
 Also ask yourself, can this be fixed with by writing a test first? 
+
+Should you really write a test that verifies that something is not there?
+
+### Note
+
+These notes cover testing models, controllers, and views. There is plenty more to know about testing e.g. testing routes. For a deeper look into testing see the Rails Guides - http://guides.rubyonrails.org/testing.html
