@@ -139,7 +139,7 @@ Migrations are pending. To resolve this issue, run:
 
 ```
 
-This is because we did have not run the migration to create a team. We can follow the instruction and migrate the test database:
+This is because we have not run the migration to create the teams table. We can follow the instruction and migrate the test database:
 
 ```
 rake db:migrate RAILS_ENV=test
