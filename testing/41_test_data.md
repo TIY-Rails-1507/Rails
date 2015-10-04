@@ -273,7 +273,7 @@ new_zealand = create(:team)
 This creates a new team in the database with the default values specified in the factory e.g. team name of New Zealand
 
 ```ruby
-australia = build(:team, name: "Australia", rank: 86.75)
+australia = create(:team, name: "Australia", rank: 86.75)
 ```
 This creates a new team in the database, with the factories default values overridden. 
 
