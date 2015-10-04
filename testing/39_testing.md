@@ -187,11 +187,6 @@ If we keep the development database up-to-date with migrations we wont need to w
 "In order to run your tests, your test database will need to have the current structure. The test helper checks whether your test database has any pending migrations. If so, it will try to load your db/schema.rb or db/structure.sql into the test database. If migrations are still pending, an error will be raised. Usually this indicates that your schema is not fully migrated. Running the migrations against the development database (bin/rake db:migrate) will bring the schema up to date." - http://guides.rubyonrails.org/testing.html#rails-sets-up-for-testing-from-the-word-go
 
 
-### Note
-
-These notes cover testing models, controllers, and views. There is plenty more to know about testing e.g. testing routes. For a deeper look into testing see the Rails Guides - http://guides.rubyonrails.org/testing.html
-
-
 
 
 
