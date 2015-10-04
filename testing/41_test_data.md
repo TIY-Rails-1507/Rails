@@ -1,8 +1,6 @@
 # Test Data
 
-In this section we see how inject the database with known data so that we can perform additional test e.g. updating a model.
-
-There are many ways of doing this, we will look at two approaches.
+In this section we see how to inject the database with known data so that we can perform additional tests. There are many ways of doing this, we will look at two approaches.
 
 
 ## Fixtures
