@@ -14,6 +14,8 @@ In this section we will start with a new application called RWC - short for Rugb
 
 Each team will have a ranking. The ranking is a percent where the higher the number the better The application will try to predict a winner of a game, based on the raking.
 
+Reference: http://www.worldrugby.org/rankings
+
 ### Creating the application 
 
 Run the following command to create the application:
