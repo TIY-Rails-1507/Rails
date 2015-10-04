@@ -172,7 +172,7 @@ The following code will get this test to pass:
 
 Read more about testing views here: http://guides.rubyonrails.org/testing.html#testing-views
 
-#### Warning, warning! 
+#### Warning! warning! 
 
 That test above is fairly complex, it would be worth spending time on simplifying it. Even if it is just removing the list of teams and the outer loop...
 
