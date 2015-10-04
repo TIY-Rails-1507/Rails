@@ -137,7 +137,7 @@ test "should display 3 teams" do
   end
 end
 ```
-Note the use of `team.rank.to_s`. Without that `assert_select` would have assumed we were giving it a number of elements to find. However in this case we would have given it a fraction e.f. find elements with this css selector, "span[name='team_rank']" and there should be 92.86 of them! It is no wonder that if you remove the `to_s` you get the following error: 
+Note the use of `team.rank.to_s`. Without that `assert_select` would have assumed we were giving it a number of elements to find. However in this case we would have given it a fraction. This would have translated to - find elements with this css selector, "span[name='team_rank']" and there should be 92.86 of them! It is no wonder that if you remove the `to_s` you get the following error: 
 
 ```
 ArgumentError: I don't understand what you're trying to match
