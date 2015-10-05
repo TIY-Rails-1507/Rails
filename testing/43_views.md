@@ -26,7 +26,7 @@ class TeamsControllerTest < ActionController::TestCase
     assert_template :index
   end
 
-  test "should display RWC Rankings as the title"
+  test "should display RWC Rankings as the title" do
     get :index
     assert_select 'h1', "RWC Rankings"
   end
