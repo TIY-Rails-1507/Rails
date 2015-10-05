@@ -4,9 +4,20 @@ This section covers the fundamentals of testing. Automatically testing an applic
 
 Testing that previous functionality has not been effected is known as regression testing. This can take days, or even weeks, for teams that do not have automated tests. 
 
-Technically it is better to test an application from the user interface layer, and work your way down. This is known as 'outside-in testing' as is promoted by a development technique known as Behavior Driven Development - http://dannorth.net/introducing-bdd/. 
+There is a development technique known as TDD - this used to stand for Test Driven Development and was later adapted to Test Driven Design. Writing tests first can effect the way we design our code. It encourages encapsulation and modularized code. TDD was first popularized by Kent Beck in Extreme Programming Explained, and later in TDD by example. 
 
-As this is our first exposure to testing in Rails it may be easier to grasp starting from the model and working our way up the layers.
+TDD popularized the practice of writing tests which run extremely fast against a unit of the application. These are known as unit tests. Unfortunately there are many conflicting opinions as to what a "unit" is. Some say it is one class and rely heavily on mocking. Others are less strict and only use mocking if the tests are slow, or there is no alternative - personally I tend to agree with the later. 
+
+Technically it is better to test an application from the user interface layer, and work your way down. This is known as 'outside-in testing'. This approach is promoted by a development technique known as Behavior Driven Development (BDD). 
+
+
+BDD was originally created to help teams adopt TDD. Some people say that BDD is TDD done properly, some people say that it is more than that. Feel free to judge for yourself - http://dannorth.net/introducing-bdd/. 
+
+_*DD?_   
+
+Not only is there TDD and BDD, there is also DDD (Domain Driven Design), Feature Driven Design (FDD), and a few others. Luckily all of these approaches support the same fundamental concepts - code from the outside in, from the perspective of the user.   
+
+As this is our first exposure to testing in Rails it may be easier to grasp the concepts starting from the model and working our way up the layers.
 
 ## Setup
 
